@@ -1,3 +1,4 @@
+# RxPY labs
 
 ## event_loop
 
@@ -25,3 +26,5 @@ You should see the string "hello" echoed back.
 You can go back to your terminal and say control-c to exit the web server.
 
 
+=======
+* Note: [Book lab](https://github.com/PacktPublishing/Hands-On-Reactive-Programming-with-Python)
