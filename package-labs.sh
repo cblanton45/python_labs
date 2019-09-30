@@ -15,4 +15,4 @@ jupyter nbconvert ${notebooks}
 
 rm -f *.zip
 #git archive -o python-labs.zip .
-zip -x '*.git*'  -x '*zip*'  -r python-labs.zip .
+zip -x '*.git*'  -x '*zip*' -x 'from-abhishek' -r python-labs.zip .
