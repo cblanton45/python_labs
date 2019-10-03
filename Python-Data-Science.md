@@ -1,9 +1,5 @@
 # Python Data Science Labs
 
-**NOTE**: This repo is **DEPRECATED**.  Please refer to [python-labs](http://www.github.com/elephantscale/python-labs)
-
-
-
 This will be our data science python labs
 
 ## Jupyter Notebooks
@@ -16,37 +12,50 @@ Type in the following:
   jupyter notebook
 ```
 
-
 ### Labs
 
-1. 01-intro/01-LearningNotebooks.ipynb
-2. 01-intro/02-LearningPython.ipynb
-3. 01-intro/03-NumPy.ipynb
-4. 01-intro/04-Pandas.ipynb
-5. 01-intro/05-Exploring_Pandas.ipynb
-6. 02-stats/1c-scipy-stats-intro.ipynb
-7. 02-stats/lr.ipynb
-8. 02-stats/stats-basics.ipynb
-9. 03-visualization/1-viz-intro.ipynb
-10. 03-visualization/2-viz-more.ipynb
-11. 04-exploration/1-explore-prosper.ipynb
-12. 04-exploration/2-explore-walmart.ipynb
-13. 04-exploration/data-cleanup.ipynb
-14. 04-exploration/explore-house-sales.ipynb
-15. 04-exploration/visualize-house-sales.ipynb
-16. 05-sklearn/06-Sklearn_Introduction.ipynb
-17. 05-sklearn/06a-Sklearn_LRegression.ipynb
-18. 05-sklearn/07-Sklearn_Clustering.ipynb
-19. 05-sklearn/08-Sklearn_Classification.ipynb
-20. 06-text/1-nltk-intro.ipynb
-21. 06-text/2-analyzing-text-with-nltk.ipynb
-22. 06-text/3-ngrams.ipynb
-23. 06-text/4-textblob.ipynb
-24. 06-text/5-tf-idf-intro.ipynb
-25. 06-text/6-tf-idf-with-scikit-learn.ipynb
-26. 06-text/7-gensim-intro.ipynb
-27. 06-text/8-gensim-newsgroups.ipynb
-28. 07-spark/09-Introducing_PySpark.ipynb
-29. 07-spark/10-Learning_Spark.ipynb
-30. 07-spark/11-Pyspark_ML_Clustering.ipynb
+1. [Notebooks](notebooks/)
+   * [Learning Notebooks](notebooks/2.2-learning-jupyter.ipynb)
+2. [Language Basics](languagebasics/)
+   * [Types](languagebasics/3.1-types.ipynb)
+   * [Conditionals](languagebasics/3.2-conditionals.ipynb)
+   * [Loops](languagebasics/3.3-loops.ipynb)
+   * [Functions](languagebasics/3.4-functions.ipynb)
+3. [NumPy](numpy/)   
+   * [Numpy Intro](numpy/4.1-numpy-intro.ipynb)
+4. [Stats](stats/)
+   * [Stats Basics](stats/1-stats-basics.ipynb)
+   * [Linear Regression](stats/2-lr.ipynb)
+   * [Logistic Regression](stats/3-logit.ipynb)
+5. [Pandas](pandas/)
+   * [Pandas Intro](pandas/5.1-pandas-intro.ipynb)
+   * [Pandas Exploration](pandas/5.2-pandas-exploration.ipynb)
+6. [Visualization](visualization/)
+   * [Visualization Intro](visualization/1-viz-intro.ipynb)
+   * [Plot Cars](visualization/2-plot-cars.ipynb)
+   * [Heat Map](visualization/3-heatmap.ipynb)
+   * [ggplot](visualization/4-ggplot.ipynb)
+7. [Exploration](exploration/)
+   * [Data Cleanup](exploration/1-data-cleanup.ipynb)
+   * [Explore House Sales](exploration/2-explore-house-sales.ipynb)
+   * [Visualize House Sales](exploration/3-visualize-house-sales.ipynb)
+   * [Explore Prosper](exploration/4-explore-prosper.ipynb)
+   * [Explore Walmart](exploration/5-explore-walmart.ipynb)
+8. [ML with Scikit-Learn](sklearn/)
+   * [Scikit-Learn Intro](sklearn/1-sklearn-intro.ipynb)
+   * [Scikit Learn Linear Regression](sklearn/2-sklearn-lr.ipynb)
+   * [Scikit Learn Clustering Mtcars Dataset](sklearn/3-sklearn-cluster-mtcars.ipynb)
+   * [Scikit Learn Clustering NYC Flights Dataset](sklearn/4-sklearn-cluster-nycflights.ipynb)
+   * [Scikit Learn Classification NYC Flights Dataset](sklearn/5-sklearn-classify-nycflights.ipynb)
+8. [Recommendations](recs/)  
+   * [Recommendations Movielens](recs/6-recs-movielens.ipynb)
+   * [Recommendations Audioscrobble](recs/7-recs-audios.ipynb)
+
+
+## Related Modules
+
+ * [Python Language](./Python-Language.md)
+ * [Python Text](./Python-Text.md)
+ * [Python Machine Learning](http://www.github.com/elephantscale/ml-labs-python/README.md)
+
 
