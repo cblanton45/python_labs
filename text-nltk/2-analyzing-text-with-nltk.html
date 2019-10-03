@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>5.4-matplotlib-cars</title>
+<title>2-analyzing-text-with-nltk</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,11 +13116,16 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2-plot-cars-Lab">2-plot-cars Lab<a class="anchor-link" href="#2-plot-cars-Lab">&#182;</a></h1><h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
-<li>Learn matplotlib library</li>
-</ul>
-<h3 id="Depends-On">Depends On<a class="anchor-link" href="#Depends-On">&#182;</a></h3><p>None</p>
-<h3 id="Run-time">Run time<a class="anchor-link" href="#Run-time">&#182;</a></h3><p>15-20 mins</p>
+<h1 id="Analyzing-Text-With-NLTK">Analyzing Text With NLTK<a class="anchor-link" href="#Analyzing-Text-With-NLTK">&#182;</a></h1><h2 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h2><p>Basic text analytics with NLTK</p>
+<h2 id="Runtime">Runtime<a class="anchor-link" href="#Runtime">&#182;</a></h2><p>20 mins</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Step-1-:-Wordcount-on-NLTK-Corpus">Step 1 : Wordcount on NLTK Corpus<a class="anchor-link" href="#Step-1-:-Wordcount-on-NLTK-Corpus">&#182;</a></h2><p>Let's do some basic word counts in corpus</p>
 
 </div>
 </div>
@@ -13130,10 +13135,31 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">state_union</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="k">import</span> <span class="n">FreqDist</span>
 
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1">## -- state of the union</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">state_union</span><span class="o">.</span><span class="n">fileids</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="n">gw2006</span> <span class="o">=</span> <span class="n">state_union</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="s1">&#39;2006-GWBush.txt&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;len of gw2006 : &quot;</span> <span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">gw2006</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;gw2006 :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="n">gw2006</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">300</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1">## TODO-2 :  get the words</span>
+<span class="n">gw2006_words</span> <span class="o">=</span> <span class="n">state_union</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;???&#39;</span><span class="p">)</span>
+<span class="c1">## TODO-3 : print number of words and some words (Hint : gw2006_words[1:100])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(gw2006_words) : &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="err">???</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;gw2006_words : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="n">fdist</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">gw2006_words</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;most common words : &quot;</span> <span class="p">,</span> <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="c1">## What do we see?</span>
 </pre></div>
 
     </div>
@@ -13144,7 +13170,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cars-Dataset">Cars Dataset<a class="anchor-link" href="#Cars-Dataset">&#182;</a></h3><p>The "cars" dataset has speed and stopping distance of different cars. Each line is a different observation.</p>
+<h2 id="Step-2-:-Cleaning-up-text">Step 2 : Cleaning up text<a class="anchor-link" href="#Step-2-:-Cleaning-up-text">&#182;</a></h2><p>In the previous example, our top words were 'the', 'and' , 'of'.  These are called 'stop words'.  Let's clean them up.</p>
 
 </div>
 </div>
@@ -13154,8 +13180,60 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/cars/cars.csv&#39;</span><span class="p">)</span>
-<span class="n">cars</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">state_union</span>
+
+<span class="n">gw2006_words</span> <span class="o">=</span> <span class="n">state_union</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;2006-GWBush.txt&#39;</span><span class="p">)</span>
+<span class="n">gw2006_words_lower</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gw2006_words</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(gw2006_words) : &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">gw2006_words</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="n">stop_words_en</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;len(stop_words_en) : &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">stop_words_en</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;stop words_en : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">stop_words_en</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="n">cleaned</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gw2006_words_lower</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words_en</span><span class="p">]</span>
+<span class="c1">## TODO : how many words in cleaned</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(cleaned) : &quot;</span><span class="p">,</span> <span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cleaned text:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cleaned</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">200</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="n">fdist</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;most common words in cleaned :</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">,</span> <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1"># we need to remove punctuation</span>
+<span class="n">stop_words_en</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;}&#39;</span><span class="p">])</span> 
+
+<span class="n">cleaned2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gw2006_words_lower</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words_en</span><span class="p">]</span>
+<span class="c1">## TODO : how many words in cleaned</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(cleaned2) : &quot;</span><span class="p">,</span> <span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1">## TODO - calculate FreqDist for cleaned2</span>
+<span class="n">fdist</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;most common words in cleaned2 :</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">,</span> <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1">## TODO :  further cleanup</span>
+<span class="c1">## Inspecting the output, we see a couple of punctuations that need cleaning up</span>
+<span class="c1">## add them to stop words list and clean up again</span>
+<span class="n">stop_words_en</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s1">&#39;.)&#39;</span><span class="p">,</span> <span class="s1">&#39;??&#39;</span><span class="p">])</span> 
+<span class="n">cleaned3</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gw2006_words_lower</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words_en</span><span class="p">]</span>
+<span class="c1">## TODO : len of cleaned3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(cleaned3) : &quot;</span><span class="p">,</span> <span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1">## TODO : Commpute FreqDist for cleaned3</span>
+<span class="n">fdist</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;most common words in cleaned3 :</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">,</span> <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13166,16 +13244,9 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>=&gt; Plot a matplotlib graph to demonstrate the relationship between speed and stopping distance.</strong></p>
-<p><strong>=&gt; Add title, and labels for X and Y axis.</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Cars93-dataset">Cars93 dataset<a class="anchor-link" href="#Cars93-dataset">&#182;</a></h2><p><strong>=&gt; Import Cars93 dataset.</strong></p>
+<h2 id="Step-3-:-Analyze-another-text-dataset">Step 3 : Analyze another text dataset<a class="anchor-link" href="#Step-3-:-Analyze-another-text-dataset">&#182;</a></h2><p>In the previous exercise we analyzed data bundled with NLTK.
+In this section, we are going to load and analyze custom dataset</p>
+<p>We will use <a href="../data/text/sotu-2014-obama.txt">State of the union 2014 by President Obama</a></p>
 
 </div>
 </div>
@@ -13185,8 +13256,53 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Cars93</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/cars/cars93.csv&#39;</span><span class="p">)</span>
-<span class="n">Cars93</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="k">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="k">import</span> <span class="n">wordpunct_tokenize</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../data/text/sotu-2014-obama.txt&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(text)&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;text:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">500</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tokenize, split into words</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">words_lower</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(words) : &quot;</span><span class="p">,</span> <span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;words:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">words</span><span class="p">[:</span><span class="mi">50</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;words_lower:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">words_lower</span><span class="p">[:</span><span class="mi">50</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1"># fdist</span>
+<span class="n">fdist</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;most common in words :</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">,</span> <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+
+<span class="c1">## TODO : now use the above example to eliminate stop words from text</span>
+<span class="c1">## and run distribution</span>
+
+<span class="n">stop_words_en</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
+
+<span class="n">cleaned1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">words_lower</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words_en</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(cleaned1) : &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cleaned</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="n">fdist</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;most common in cleaned1 :</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">,</span> <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1">## TODO : continue cleaning up further</span>
+<span class="c1">## remove punctuation</span>
+<span class="c1">## remove any other </span>
+
+<span class="c1">## Final output is </span>
+<span class="c1">## [(&#39;applause&#39;, 97), (&#39;america&#39;, 39), (&#39;help&#39;, 32), (&#39;cheers&#39;, 32)</span>
 </pre></div>
 
     </div>
@@ -13197,7 +13313,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>=&gt; Calculate average MPG.city for each car type.</strong></p>
+<h2 id="Step-4-:-Stemming-Part-1">Step 4 : Stemming Part 1<a class="anchor-link" href="#Step-4-:-Stemming-Part-1">&#182;</a></h2><p>Let's explore different stemming algorithm available in NLTK.  Run the code below and observe the differences in stemming (marked by *)</p>
 
 </div>
 </div>
@@ -13207,11 +13323,31 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Cars93</span><span class="p">[</span><span class="s1">&#39;MPG.avg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Cars93</span><span class="p">[</span><span class="s1">&#39;MPG.city&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">Cars93</span><span class="p">[</span><span class="s1">&#39;MPG.highway&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.porter</span> <span class="k">import</span> <span class="n">PorterStemmer</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.lancaster</span> <span class="k">import</span> <span class="n">LancasterStemmer</span>
 
-<span class="c1">## Calculate avg MPG for each type</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">Cars93</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;MPG.avg&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">})</span> 
-<span class="n">m</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;running&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span> <span class="s1">&#39;liked&#39;</span><span class="p">,</span> <span class="s1">&#39;snow&#39;</span><span class="p">,</span> <span class="s1">&#39;snowing&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;maximum&#39;</span><span class="p">,</span> 
+         <span class="s1">&#39;multiply&#39;</span><span class="p">,</span> <span class="s1">&#39;crying&#39;</span><span class="p">,</span> <span class="s1">&#39;leaves&#39;</span><span class="p">,</span> <span class="s1">&#39;fairly&#39;</span><span class="p">]</span>
+<span class="c1">#print(words)</span>
+<span class="n">stemmer_snowball</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)</span>
+<span class="n">stemmer_porter</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
+<span class="n">stemmer_lancaster</span> <span class="o">=</span> <span class="n">LancasterStemmer</span><span class="p">()</span>
+<span class="c1">#stemmed_tokens =  [stemmer.stem(word) for word in words]</span>
+<span class="c1">#print(stemmed_tokens)</span>
+
+<span class="c1"># run through a few stems</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;word,  snowball_stem,   porter_stem, lancaster stem&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">snowball_stem</span> <span class="o">=</span> <span class="n">stemmer_snowball</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">porter_stem</span> <span class="o">=</span> <span class="n">stemmer_porter</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">lancaster_stem</span> <span class="o">=</span> <span class="n">stemmer_lancaster</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">snowball_stem</span> <span class="o">!=</span> <span class="n">porter_stem</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">snowball_stem</span> <span class="o">!=</span> <span class="n">lancaster_stem</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">porter_stem</span> <span class="o">!=</span> <span class="n">lancaster_stem</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">,  </span><span class="si">{}</span><span class="s2">,  </span><span class="si">{}</span><span class="s2">,  </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">snowball_stem</span><span class="p">,</span> <span class="n">porter_stem</span><span class="p">,</span> <span class="n">lancaster_stem</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13222,7 +13358,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>=&gt; Do a matplotlib barplot on car Type vs average mileage.</strong></p>
+<h2 id="Step-5:-Putting-it-all-together">Step 5: Putting it all together<a class="anchor-link" href="#Step-5:-Putting-it-all-together">&#182;</a></h2><p>Now that we know all the algorithms, let's do a final analysis on 2014 SOTU.</p>
 
 </div>
 </div>
@@ -13232,191 +13368,51 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Do a bar plot</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="k">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../data/text/sotu-2014-obama.txt&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1">## TODO : Cleanup 1 : lowercase it all</span>
+<span class="n">words_lower</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="err">???</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+
+
+<span class="c1">## cleanup 2 - remove stop words</span>
+<span class="n">stop_words_english</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
+<span class="n">stop_words_english</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;}&#39;</span><span class="p">])</span>
+<span class="n">stop_words_english</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s2">&quot;&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">])</span>
+<span class="c1">## TODO : iterate through &#39;words_lower&#39;</span>
+<span class="n">cleaned1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="err">???</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words_english</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(cleaned1) : &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cleaned1</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;cleaned1:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cleaned1</span><span class="p">[:</span><span class="mi">50</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1">##  Cleanup 3 - stem</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)</span>
+<span class="c1">## TODO : iterate through &#39;cleaned1&#39;</span>
+<span class="n">cleaned2</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="err">???</span><span class="p">]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;len(cleaned2) : &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cleaned2</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;cleaned2:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cleaned2</span><span class="p">[:</span><span class="mi">50</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1">## TODO : Wordcount on &#39;cleaned2&#39;</span>
+<span class="n">wc</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="err">???</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;top 20 word count(cleaned2) : &quot;</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">frequency</span> <span class="ow">in</span> <span class="n">wc</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{word}</span><span class="s2"> = </span><span class="si">{frequency}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>=&gt; Add colors to the graph!</strong></p>
-<p>Hint: set the color parameter on the pyplot bar. It is a list of the colors you want. ['yellow', 'maroon']</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Add Colors</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Boxplot">Boxplot<a class="anchor-link" href="#Boxplot">&#182;</a></h3><p><strong>=&gt; BoxPlot  Car type vs MPG.</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Perform Boxplot</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Histograms">Histograms<a class="anchor-link" href="#Histograms">&#182;</a></h3><p><strong>=&gt; Do a histogram on car prices.</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Perform Histogram</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>=&gt; Do a discrete histogram for car types.</strong>
-Note: <code>hist</code>  works well with continuous values.
-Hint: use pandas df.value_counts function to calculate frequencies, then plot.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Hisogram of car types</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Hmmm...-Pie!">Hmmm... Pie!<a class="anchor-link" href="#Hmmm...-Pie!">&#182;</a></h3><p><strong>=&gt; Do a pie-chart on  US vs non-US models</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do a pie chart.</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Save-Graphs">Save Graphs<a class="anchor-link" href="#Save-Graphs">&#182;</a></h3><p>And finally export a graph into a file (pdf or png)</p>
-<p>you can use plt.savefig()</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save graph.</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Scatter-Plot-Matrix">Scatter Plot Matrix<a class="anchor-link" href="#Scatter-Plot-Matrix">&#182;</a></h3><p>How do we plot in more than 2 or 3 dimensions?</p>
-<p>Use a scatter plot matrix?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/rainfall/trees.csv&#39;</span><span class="p">)</span>
-<span class="n">trees</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">trees</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>=&gt; Do you spot any relation between Girth, Height and Volume?</strong></p>
-<p><strong>=&gt; Plot those two attributes in a separate graph.</strong></p>
-
-</div>
-</div>
 </div>
     </div>
   </div>
