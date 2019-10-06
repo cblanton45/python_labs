@@ -13146,6 +13146,7 @@ You can test if NLTK is installed by doing the following.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;nltk version : &quot;</span><span class="p">,</span> <span class="n">nltk</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 <span class="c1"># is this working?</span>
 </pre></div>
 
@@ -13178,12 +13179,26 @@ If you want to download it you can do so as follows</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-<span class="c1"># and choose the directory</span>
-<span class="c1"># we will add this dierctory to `nltk.data.path`</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">nltk</span><span class="o">.</span><span class="n">downloader</span> <span class="nb">all</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import nltk</span>
+<span class="c1"># nltk.download(&#39;all&#39;)</span>
+<span class="c1"># # and choose the directory</span>
+<span class="c1"># # we will add this dierctory to `nltk.data.path`</span>
+<span class="c1"># from os.path import expanduser</span>
+<span class="c1"># nltk.data.path.append( expanduser(&quot;~&quot;) + &quot;/data/nltk_data&quot;)</span>
 </pre></div>
 
     </div>
@@ -13219,8 +13234,8 @@ If you want to download it you can do so as follows</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="c1"># from os.path import expanduser</span>
+<span class="c1"># nltk.data.path.append( expanduser(&quot;~&quot;) + &quot;/data/nltk_data&quot;)</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">words</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="n">words</span><span class="o">.</span><span class="n">readme</span><span class="p">())</span>
@@ -13255,10 +13270,25 @@ If you want to download it you can do so as follows</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Show the names of the fileids</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">state_union</span><span class="o">.</span><span class="n">fileids</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="c1"># from os.path import expanduser</span>
+<span class="c1"># nltk.data.path.append( expanduser(&quot;~&quot;) + &quot;/data/nltk_data&quot;)</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">state_union</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">state_union</span><span class="o">.</span><span class="n">readme</span><span class="p">())</span>
@@ -13303,9 +13333,23 @@ If you want to download it you can do so as follows</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let&#39;s see what the names of the files are</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">gutenberg</span><span class="o">.</span><span class="n">fileids</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="c1"># from os.path import expanduser</span>
+<span class="c1"># nltk.data.path.append( expanduser(&quot;~&quot;) + &quot;/data/nltk_data&quot;)</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">gutenberg</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="n">gutenberg</span><span class="o">.</span><span class="n">readme</span><span class="p">())</span>
@@ -13351,8 +13395,8 @@ If you want to download it you can do so as follows</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="c1"># from os.path import expanduser</span>
+<span class="c1"># nltk.data.path.append( expanduser(&quot;~&quot;) + &quot;/data/nltk_data&quot;)</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">movie_reviews</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">movie_reviews</span><span class="o">.</span><span class="n">readme</span><span class="p">())</span>
@@ -13387,9 +13431,8 @@ If you want to download it you can do so as follows</p>
 <span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="k">import</span> <span class="n">wordpunct_tokenize</span>
 <span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="k">import</span> <span class="n">sent_tokenize</span>
 
-<span class="c1">## TODO-1 : check this path</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="c1"># from os.path import expanduser</span>
+<span class="c1"># nltk.data.path.append( expanduser(&quot;~&quot;) + &quot;/data/nltk_data&quot;)</span>
 
 <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;I went to Starbucks. I bought a latte for $4.50!</span>
 <span class="s2">Yum :-)</span>

@@ -13122,6 +13122,21 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Run this if you need it</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13135,8 +13150,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">expanduser</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/data/nltk_data&quot;</span><span class="p">)</span>
+<span class="c1"># from os.path import expanduser</span>
+<span class="c1"># nltk.data.path.append( expanduser(&quot;~&quot;) + &quot;/data/nltk_data&quot;)</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
 <span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="k">import</span> <span class="n">word_tokenize</span>
 
@@ -13182,8 +13197,10 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Step-2---Find-top-bigrams-of-following-text">Step 2 - Find top bigrams of following text<a class="anchor-link" href="#Step-2---Find-top-bigrams-of-following-text">&#182;</a></h2><p>State of The Union - location : ../data/text/sotu-2014-obama.txt
-Moby Dick : ../data/text/moby-dick.txt</p>
+<h2 id="Step-2---Find-top-bigrams-of-following-text">Step 2 - Find top bigrams of following text<a class="anchor-link" href="#Step-2---Find-top-bigrams-of-following-text">&#182;</a></h2><ul>
+<li>State of the Union</li>
+<li>Moby Dick </li>
+</ul>
 
 </div>
 </div>
@@ -13193,8 +13210,26 @@ Moby Dick : ../data/text/moby-dick.txt</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># !wget https://elephantscale-public.s3.amazonaws.com/data/text/state-of-the-unions/2016-Obama.txt</span>
+<span class="c1"># !wget https://elephantscale-public.s3.amazonaws.com/data/text/books/moby-dick.txt</span>
+
+<span class="c1"># f = open(&#39;/data/text/state-of-the-unions/2014-Obama.txt&#39;)</span>
+<span class="c1"># f = open (&#39;/data/text/books/moby-dick.txt&#39;)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># read the text as follows</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../data/text/sotu-2014-obama.txt&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/data/text/state-of-the-unions/2014-Obama.txt&#39;</span><span class="p">)</span>
+<span class="c1"># f = open (&#39;/data/text/books/moby-dick.txt&#39;)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="c1"># TODO - continue from here</span>
