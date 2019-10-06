@@ -1,4 +1,21 @@
+## Generic
 *.zip
+*.out
+._DS_Store
+.DS_Store
+
+
+
 *.so
 ./idea
 build
+
+
+
+## python 
+.ipynb_checkpoints
+*.pyc
+
+
+# ignore html for now
+*.html
