@@ -31,13 +31,13 @@ This will open up a browser window that will allow you to open the notebooks.
     * [1-starting-jupyter.md](notebooks/2.1-starting-jupyter.md)
     * [2-learning-jupyter.ipynb](notebooks/2.2-learning-jupyter.md)
  3. [Language Basics](languagebasics/)
-    * [1-types.ipynb](languagebasics/3.1-types.ipynb)
-    * [2-conditionals.ipynb](languagebasics/3.2-conditionals.ipynb)
-    * [3-loops.ipynb](languagebasics/3.3-loops.ipynb)
-    * [4-functions.ipynb](languagebasics/3.4-functions.ipynb)
+    * [1-types.ipynb](languagebasics/1-types.ipynb)
+    * [2-conditionals.ipynb](languagebasics/2-conditionals.ipynb)
+    * [3-loops.ipynb](languagebasics/3-loops.ipynb)
+    * [4-functions.ipynb](languagebasics/4-functions.ipynb)
     * [5-string.md](languagebasics/3.5-string.md)
     * [6-files.md](languagebasics/3.6-files.md)
-    * [7-oop.md](languagebasics/3.7-oop.md)
+    * [7-oop.md](languagebasics/7-oop.md)
  4. [Numpy](numpy)/
     * [1-numpy-intro.ipynb](numpy/4.1-numpy-intro.ipynb)
  5. [Pandas](pandas)/
