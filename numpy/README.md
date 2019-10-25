@@ -18,4 +18,4 @@ This will open up a browser window that will allow you to open the notebooks.
 
 ### Labs
 
-    * [4.1-numpy-intro.ipynb](4.1-numpy-intro.ipynb)
+    * [1-numpy-intro.ipynb](1-numpy-intro.ipynb)

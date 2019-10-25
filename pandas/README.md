@@ -19,4 +19,5 @@ This will open up a browser window that will allow you to open the notebooks.
 ### Labs
 
  5. [Pandas](./05-pandas)/
-    * [5.1-pandas-intro.ipynb](./5.1-pandas-intro.ipynb)
+    * [1-pandas-intro.ipynb](./1-pandas-intro.ipynb)
+    * [1-pandas-intro.ipynb](./2-pandas-exploration.ipynb)

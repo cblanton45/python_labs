@@ -39,9 +39,10 @@ This will open up a browser window that will allow you to open the notebooks.
     * [6-files.md](languagebasics/3.6-files.md)
     * [7-oop.md](languagebasics/7-oop.md)
  4. [Numpy](numpy)/
-    * [1-numpy-intro.ipynb](numpy/4.1-numpy-intro.ipynb)
+    * [1-numpy-intro.ipynb](numpy/1-numpy-intro.ipynb)
  5. [Pandas](pandas)/
-    * [1-pandas-intro.ipynb](numpy/5.1-pandas-intro.ipynb)
+    * [1-pandas-intro.ipynb](numpy/1-pandas-intro.ipynb)
+    * [2-pandas-exploration.ipynb](numpy/2-pandas-exploration.ipynb)
  6. [Web](web/)
     * [1-setup-dev-env.ipynb](web/6.1-setup-dev-env.ipynb)
     * [2-time-tracker-webservice.ipynb](web/6.2-time-tracker-webservice.ipynb)
